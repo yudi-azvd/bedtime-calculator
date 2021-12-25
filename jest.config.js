@@ -21,6 +21,10 @@ module.exports = {
     '@/(.*)': '<rootDir>/src/$1'
   },
   watchPathIgnorePatterns: [
-    "node_modules"
+    "node_modules",
+    '<rootDir>/dist'
   ],
+  modulePathIgnorePatterns: [
+    '<rootDir>/dist'
+  ]
 }
