@@ -2,7 +2,7 @@ import CalculateOneSleepCycleService from './CalculateOneSleepCycleService'
 import { Args } from './CalculateOneSleepCycleService'
 
 /**
- * Calcula horários a partir de `baseTime` em intervalos de
+ * Calcula horários prévios a `baseTime` em intervalos de
  * tempo de `sleepCycleDurationInMinutes`.
  *
  * @param {string} baseTime horário base no formato HH:mm
@@ -18,6 +18,6 @@ export default class CalculateOneSleepCycleLaterService extends CalculateOneSlee
   }
 
   protected operation(mili1: any, mili2: any): number {
-    return mili1 + mili2
+    return mili1 - mili2
   }
 }

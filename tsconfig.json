@@ -1,13 +1,7 @@
 {
   "compilerOptions": {
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "sourceMap": true,
-    "strict": true,
     "esModuleInterop": true,
-    "baseUrl": "src",
-    "rootDir": "src",
+    "sourceMap": true,
     "outDir": "dist"
   },
   "include": ["src"],

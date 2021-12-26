@@ -4,6 +4,7 @@
  */
 
 module.exports = {
+  bail: false,
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageReporters: [
