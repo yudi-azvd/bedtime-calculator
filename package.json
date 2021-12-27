@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build public/index.html",
+    "build": "parcel build --public-url ./ public/index.html",
     "dev": "parcel public/index.html",
     "test": "jest",
     "test:watch": "jest --watch --runInBand",
