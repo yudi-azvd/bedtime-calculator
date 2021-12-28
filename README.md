@@ -19,9 +19,14 @@ Você pode interagir com a aplicação no endereço
 
 ## Recursos extras
 
-[Abas com JavaScript](https://www.youtube.com/watch?v=sxPEmuW7aUg)
+[Exemplo de PWA do MDN](https://github.com/mdn/pwa-examples/tree/master/js13kpwa)
 
 [PWA no MDN](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+
+[PWA no web.dev](https://web.dev/progressive-web-apps/)
+
+[Abas com JavaScript](https://www.youtube.com/watch?v=sxPEmuW7aUg)
+
 
 Sim, fazer esse tanto de classe pode ser um overkill,
 mas eu tô treinando alguns princícpios do SOLID e TDD.

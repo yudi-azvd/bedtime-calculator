@@ -3,6 +3,7 @@ import CalculateOneSleepCycleLaterService from './services/CalculateOneSleepCycl
 function main() {
   const startTimeInput = document.querySelector('#start-time-sleep') as HTMLInputElement
   const timesDiv = document.querySelector('#times-wake-up') as HTMLDivElement
+  startTimeInput.value = dateToTimeString(new Date())
 
   function onStartTimeChange(event: Event) {
     const startTime = `${(<HTMLInputElement>event.target).value}`
