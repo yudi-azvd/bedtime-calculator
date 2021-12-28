@@ -1,36 +1,27 @@
-import CalculateOneSleepCycleLaterService from './services/CalculateOneSleepCycleLaterService'
+import TabCredits from './presentation/TabCredits'
+import TabSleep from './presentation/TabSleep'
+import TabWakeUp from './presentation/TabWakeUp'
+import TabManager from './presentation/TabManager'
+import TabManagerMenu from './presentation/TabManagerMenu'
 
 function main() {
-  const startTimeInput = document.querySelector('#start-time-sleep') as HTMLInputElement
-  const timesDiv = document.querySelector('#times-wake-up') as HTMLDivElement
-  startTimeInput.value = dateToTimeString(new Date())
+  const tabManagerHtmlElem = document.querySelector('.tab-manager') as HTMLDivElement
+  const tabs = [
+    new TabSleep(document),
+    new TabWakeUp(document),
+    new TabCredits(document)
+  ]
 
-  function onStartTimeChange(event: Event) {
-    const startTime = `${(<HTMLInputElement>event.target).value}`
-    timesDiv.innerText = ''
+  const tabManagerMenu = new TabManagerMenu(document,
+    tabs.map(tab => ({ id: tab.id.replace(/tab-/, ''), name: tab.name })))
 
-    let oneSleepCycleLater: string
-    let newTime = startTime
-    let calc = new CalculateOneSleepCycleLaterService({ baseTime: newTime })
-    for (let index = 0; index < 5; index++) {
-      oneSleepCycleLater = calc.run()
-      newTime = oneSleepCycleLater
-      const li = document.createElement('li')
-      li.innerText = oneSleepCycleLater
-      timesDiv.appendChild(li)
-    }
-  }
+  const tabManager = new TabManager(
+    tabManagerHtmlElem,
+    tabs,
+    tabManagerMenu
+  )
 
-  startTimeInput.addEventListener('change', onStartTimeChange)
+  tabManager.setupMenuListeners()
 }
 
 main()
-
-function dateToTimeString(date: Date): string {
-  let hours = new String(date.getHours())
-  hours = hours.padStart(2, '0')
-  let minutes = new String(date.getMinutes())
-  minutes = minutes.padStart(2, '0')
-  return `${hours}:${minutes}`
-}
-

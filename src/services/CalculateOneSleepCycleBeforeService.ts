@@ -8,7 +8,7 @@ import { Args } from './CalculateOneSleepCycleService'
  * @param {string} baseTime horário base no formato HH:mm
  * @param {number} sleepCycleDurationInMinutes duração de um ciclo de sono em minutos
  */
-export default class CalculateOneSleepCycleLaterService extends CalculateOneSleepCycleService {
+export default class CalculateOneSleepCycleBeforeService extends CalculateOneSleepCycleService {
   constructor(
     { baseTime, oneSleepCycleDurationInMinutes = 90 }: Args
   ) {
