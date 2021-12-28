@@ -1,1 +1,0 @@
-{"mappings":"AAAA,WAIA,kBAAA,CAHA,YAAA,CACA,qBAGA,CAEA,cAEA,kBAAA,CADA,eAEA","sources":["public/styles/index.css"],"sourcesContent":[".container {\n  display: flex;\n  flex-direction: column;\n  /* justify-content: center; */\n  align-items: center;\n}\n\n.container h1 {\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n"],"names":[],"version":3,"file":"index.b4d826e1.css.map"}
