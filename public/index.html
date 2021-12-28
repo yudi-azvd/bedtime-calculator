@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bedtime Calculator</title>
-  <link rel="icon" type="image/png" href="./favicon.png">
 
+  <title>Bedtime Calculator</title>
+
+  <link rel="icon" type="image/png" href="./favicon.png">
   <link rel="stylesheet" href="styles/global.css">
   <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/tab.css">
@@ -26,7 +27,9 @@
     <div class="tab-container">
       <div class="tab" data-name="Eu quero dormir às...">
         <p>Eu quero dormir às:</p>
-        <input type="time" id="start-time-sleep">
+        <label for="start-time-sleep">
+          <input type="time" id="start-time-sleep">
+        </label>
 
         <p>pra acordar possivelmente às:</p>
         <div id="times-wake-up"></div>
@@ -34,15 +37,15 @@
 
       <!--
         <div class="tab" data-name="Eu quero acordar às...">
-        <h3>Eu quero acordar às:</h3>
+        <p>Eu quero acordar às:</p>
         <input type="time" id="start-time-wake-up">
 
-        <h3>dormindo possivelmente às:</h3>
+        <p>dormindo possivelmente às:</p>
         <div id="times-sleep"></div>
       </div>
 
       <div class="tab" data-name="Créditos">
-        <h3>Créditos</h3>
+        <h2>Créditos</h2>
         <p> <a href="https://www.flaticon.com/premium-icon/clock_2838590?term=clock&page=1&position=13&page=1&position=13&related_id=2838590&origin=search">Relógio</a> da logo </p>
         <p> <a href="https://www.flaticon.com/premium-icon/bed_3010012?term=bed&page=1&position=8&page=1&position=8&related_id=3010012&origin=search">Cama</a> da logo </p>
       </div>
