@@ -15,23 +15,35 @@ export interface Args {
 export default abstract class CalculateOneSleepCycleService {
   protected startTime: string
   protected oneSleepCycleDurationInMinutes = 90
-  protected MILLISECONDS_TO_MINUTES = 60 * 1000
   protected DEFAULT_DATE = '2000-01-01'
 
-  protected abstract operation(mili1: number, mili2: number): number
+  /**
+   * Esse método deve ser sobrescrito pela classe filha.
+   *
+   * Se é implementado com `n1`+`n1` a classe filha calcula horários posteriores.
+   *
+   * Se é implementado com `n1`-`n1` a classe filha calcula horários prévios.
+   *
+   * @param n1 duração em minutos 1
+   * @param n2 duração em minutos 2
+   */
+  protected abstract operation(n1: number, n2: number): number
 
   public run() {
     const startDate = new Date(`${this.DEFAULT_DATE} ${this.startTime}`)
 
-    const startTimeInMillisecs = this.operation(
-      startDate.getTime(),
-      this.oneSleepCycleDurationInMinutes
-      * this.MILLISECONDS_TO_MINUTES
+    startDate.setMinutes(
+      this.operation(
+        startDate.getMinutes(),
+        this.oneSleepCycleDurationInMinutes
+      )
     )
 
-    const oneSleepCycleLater = new Date(startTimeInMillisecs)
+    const oneSleepCycleLaterOfBefore = startDate
     // hh:mm:ss => hh:mm
-    const formattedTime = oneSleepCycleLater.toLocaleTimeString('pt-BR').replace(/:\d\d$/, '')
+    const formattedTime = oneSleepCycleLaterOfBefore
+      .toLocaleTimeString('pt-BR')
+      .replace(/:\d\d$/, '')
 
     this.startTime = formattedTime
     return formattedTime
