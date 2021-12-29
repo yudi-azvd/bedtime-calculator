@@ -9,12 +9,10 @@ export default class TabManagerMenu {
   }
 
   setActive(buttonId: string): void {
-
     const currentlyActiveButton = this.htmlElement.querySelector('button.active')
     currentlyActiveButton?.classList.remove('active')
 
     const toBeActivetated = this.htmlElement.querySelector(`#${buttonId}`)
     toBeActivetated.classList.add('active')
-    console.log({buttonId});
   }
 }

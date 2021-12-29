@@ -4,8 +4,8 @@ import TabManagerMenu from './TabManagerMenu'
 export default class TabManager {
   constructor(
     private htmlElement: HTMLDivElement,
-    tabs: Tab[],
-    readonly tabManagerMenu: TabManagerMenu
+    readonly tabManagerMenu: TabManagerMenu,
+    tabs: Tab[]
   ) {
     // Impede que o Hot Reload fique adicionando várias Tabs
     this.htmlElement.innerText = ''
@@ -22,12 +22,16 @@ export default class TabManager {
 
   setActive(tabId: string) {
     const currentActiveTab = this.htmlElement.querySelector('.tab.active')
+    currentActiveTab?.classList.add('transparent')
     currentActiveTab?.classList.add('hide')
     currentActiveTab?.classList.remove('active')
 
     const toBeActivated = this.htmlElement.querySelector(`#${tabId}`)
-    toBeActivated.classList.add('active')
+    toBeActivated.classList.remove('transparent')
     toBeActivated.classList.remove('hide')
+    setTimeout(() => {
+      toBeActivated.classList.add('active')
+    }, 200);
   }
 
   setupMenuListeners() {

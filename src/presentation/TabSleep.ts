@@ -24,7 +24,7 @@ export default class TabSleep extends Tab {
   }
 
   setup(): void {
-    this.input.addEventListener('change', (event: Event) => {
+    const onInputChange = (event: Event) => {
       let baseTime = `${(<HTMLInputElement>event.target).value}`
       const timesDiv = document.querySelector('#times-wake-up') as HTMLDivElement
       timesDiv.innerText = ''
@@ -40,6 +40,12 @@ export default class TabSleep extends Tab {
         li.innerText = oneSleepCycleLater
         timesDiv.appendChild(li)
       }
+    }
+
+    this.input.addEventListener('change', onInputChange)
+    this.input.addEventListener('blur', (event: Event) => {
+      console.log('hey');
+      onInputChange(event)
     })
   }
 }

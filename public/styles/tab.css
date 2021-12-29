@@ -1,7 +1,8 @@
 .tab-manager {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 300px;
 }
 
 
@@ -20,7 +21,7 @@
 }
 
 .tab-manager .tab-manager-menu button+button {
-  margin-left: 4px;
+  margin-left: 8px;
 }
 
 .tab-manager .tab-manager-menu button.active {
@@ -41,33 +42,43 @@
 
 /* TABS INDIVIDUAIS */
 
-.tab {
+.tab-manager .tab {
   width: auto;
+  position: absolute;
+  top: 36px;
+  opacity: 0;
+  transition: opacity 1s, top 0.3s;
 }
 
-.tab h3 {
+.tab-manager .tab.active {
+  display: block;
+  opacity: 1;
+  top: 26px;
+}
+
+.tab-manager .tab.transparent {
+  opacity: 0;
+}
+
+.tab-manager .tab.hide {
+  display: none;
+}
+
+.tab-manager .tab h3 {
   margin: 16px 0;
 }
 
-.tab p {
+.tab-manager .tab p {
   margin: 16px 0;
 }
 
-.tab div li {
+.tab-manager .tab div li {
   list-style: none;
   /* https://stackoverflow.com/questions/4686754/making-every-character-on-a-web-page-the-same-width */
   /* https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css */
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-.tab div li+li {
+.tab-manager .tab div li+li {
   margin-top: 8px;
-}
-
-.tab.active {
-  display: block;
-}
-
-.tab.hide {
-  display: none;
 }

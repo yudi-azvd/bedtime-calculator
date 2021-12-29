@@ -6,7 +6,8 @@ export default class TabWakeUp extends Tab {
   public input: HTMLInputElement
 
   constructor(document: Document) {
-    super(document, 'tab-wake-up', 'Acordar')
+    super(document, 'tab-wake-up', 'Acordar', 'times-sleep')
+
     const now = dateToTimeString(new Date())
     this.htmlElement.innerHTML = `
       <p>Eu quero acordar às:</p>
@@ -23,7 +24,7 @@ export default class TabWakeUp extends Tab {
   }
 
   setup(): void {
-    this.input.addEventListener('change', (event: Event) => {
+    const onInputChange = (event: Event) => {
       let baseTime = `${(<HTMLInputElement>event.target).value}`
       const timesDiv = document.querySelector('#times-sleep') as HTMLDivElement
       timesDiv.innerText = ''
@@ -39,7 +40,10 @@ export default class TabWakeUp extends Tab {
         li.innerText = oneSleepCycleBefore
         timesDiv.appendChild(li)
       }
-    })
+    }
+
+    this.input.addEventListener('change', onInputChange)
+    this.input.addEventListener('blur', onInputChange)
   }
 }
 

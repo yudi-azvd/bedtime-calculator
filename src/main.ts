@@ -3,13 +3,15 @@ import TabSleep from './presentation/TabSleep'
 import TabWakeUp from './presentation/TabWakeUp'
 import TabManager from './presentation/TabManager'
 import TabManagerMenu from './presentation/TabManagerMenu'
+import TabAbout from './presentation/TabAbout'
 
 function main() {
   const tabManagerHtmlElem = document.querySelector('.tab-manager') as HTMLDivElement
   const tabs = [
     new TabSleep(document),
     new TabWakeUp(document),
-    new TabCredits(document)
+    new TabCredits(document),
+    new TabAbout(document)
   ]
 
   const tabManagerMenu = new TabManagerMenu(document,
@@ -17,8 +19,8 @@ function main() {
 
   const tabManager = new TabManager(
     tabManagerHtmlElem,
+    tabManagerMenu,
     tabs,
-    tabManagerMenu
   )
 
   tabManager.setupMenuListeners()
