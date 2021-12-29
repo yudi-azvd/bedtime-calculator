@@ -17,7 +17,7 @@
   border: 1px solid transparent;
   background: transparent;
   ;
-  transition: color 0.2s, border-bottom 0.2s;
+  transition: color 0.2s, border-bottom 0.5s;
 }
 
 .tab-manager .tab-manager-menu button+button {
@@ -48,6 +48,7 @@
   top: 36px;
   opacity: 0;
   transition: opacity 1s, top 0.3s;
+  transition-timing-function: ease-out;
 }
 
 .tab-manager .tab.active {
