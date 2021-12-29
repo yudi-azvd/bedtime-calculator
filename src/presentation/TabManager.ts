@@ -31,7 +31,7 @@ export default class TabManager {
     toBeActivated.classList.remove('hide')
     setTimeout(() => {
       toBeActivated.classList.add('active')
-    }, 100);
+    }, 150);
   }
 
   setupMenuListeners() {

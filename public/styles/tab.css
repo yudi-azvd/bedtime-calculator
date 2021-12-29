@@ -78,6 +78,13 @@
   /* https://stackoverflow.com/questions/4686754/making-every-character-on-a-web-page-the-same-width */
   /* https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css */
   font-variant-numeric: tabular-nums lining-nums;
+  margin-left: 0;
+  transition: color 0.2s, margin-left 0.2s;
+}
+
+.tab-manager .tab div li:hover {
+  color: var(--color-complementary);
+  margin-left: 4px;
 }
 
 .tab-manager .tab div li+li {

@@ -10,8 +10,8 @@ function main() {
   const tabs = [
     new TabSleep(document),
     new TabWakeUp(document),
+    new TabAbout(document),
     new TabCredits(document),
-    new TabAbout(document)
   ]
 
   const tabManagerMenu = new TabManagerMenu(document,
