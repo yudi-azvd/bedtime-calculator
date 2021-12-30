@@ -1,59 +1,66 @@
 import CalculateOneSleepCycleBeforeService from './CalculateOneSleepCycleBeforeService'
+import { Args } from './CalculateOneSleepCycleService'
+
+function makeSut(args: Args) {
+  return new CalculateOneSleepCycleBeforeService(args)
+}
 
 describe('CalculateOneSleepCycleBeforeService', () => {
+  let sut: CalculateOneSleepCycleBeforeService
+
   it('should output a time one sleep cycle before given base time = 20:00', () => {
-    const calculateOneSleepCycleBeforeService = new CalculateOneSleepCycleBeforeService({
+    sut = makeSut({
       baseTime: '20:00',
     })
 
-    const time = calculateOneSleepCycleBeforeService.run()
+    const time = sut.run()
 
-    expect('18:30').toEqual(time)
+    expect(time).toBe('18:30')
   })
 
   it('should output a time one sleep cycle after given base time = 01:00', () => {
-    const calculateOneSleepCycleBeforeService = new CalculateOneSleepCycleBeforeService({
+    sut = makeSut({
       baseTime: '01:00',
     })
 
-    const time = calculateOneSleepCycleBeforeService.run()
+    const time = sut.run()
 
-    expect('23:30').toEqual(time)
+    expect(time).toBe('23:30')
   })
 
   it('should output multiple times one sleep cycle (90min) apart from each other', () => {
-    const calculateOneSleepCycleBeforeService = new CalculateOneSleepCycleBeforeService({
+    sut = makeSut({
       baseTime: '23:30',
     })
 
-    expect('22:00').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('20:30').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('19:00').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('17:30').toEqual(calculateOneSleepCycleBeforeService.run())
+    expect(sut.run()).toBe('22:00')
+    expect(sut.run()).toBe('20:30')
+    expect(sut.run()).toBe('19:00')
+    expect(sut.run()).toBe('17:30')
   })
 
   it('should output multiple times one sleep cycle (60min) apart from each other', () => {
-    const calculateOneSleepCycleBeforeService = new CalculateOneSleepCycleBeforeService({
+    sut = makeSut({
       baseTime: '23:30',
       oneSleepCycleDurationInMinutes: 60
     })
 
-    expect('22:30').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('21:30').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('20:30').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('19:30').toEqual(calculateOneSleepCycleBeforeService.run())
+    expect(sut.run()).toBe('22:30')
+    expect(sut.run()).toBe('21:30')
+    expect(sut.run()).toBe('20:30')
+    expect(sut.run()).toBe('19:30')
   })
 
   it('should output multiple times one sleep cycle (15min) apart from each other', () => {
-    const calculateOneSleepCycleBeforeService = new CalculateOneSleepCycleBeforeService({
+    sut = makeSut({
       baseTime: '23:30',
       oneSleepCycleDurationInMinutes: 15
     })
 
-    expect('23:15').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('23:00').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('22:45').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('22:30').toEqual(calculateOneSleepCycleBeforeService.run())
-    expect('22:15').toEqual(calculateOneSleepCycleBeforeService.run())
+    expect(sut.run()).toBe('23:15')
+    expect(sut.run()).toBe('23:00')
+    expect(sut.run()).toBe('22:45')
+    expect(sut.run()).toBe('22:30')
+    expect(sut.run()).toBe('22:15')
   })
 })

@@ -9,12 +9,8 @@ import { Args } from './CalculateOneSleepCycleService'
  * @param {number} sleepCycleDurationInMinutes duração de um ciclo de sono em minutos
  */
 export default class CalculateOneSleepCycleLaterService extends CalculateOneSleepCycleService {
-  constructor(
-    { baseTime, oneSleepCycleDurationInMinutes = 90 }: Args
-  ) {
-    super()
-    this.startTime = baseTime
-    this.oneSleepCycleDurationInMinutes = oneSleepCycleDurationInMinutes
+  constructor(args: Args) {
+    super(args)
   }
 
   protected operation(mili1: any, mili2: any): number {
