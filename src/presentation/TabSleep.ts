@@ -43,10 +43,6 @@ export default class TabSleep extends Tab {
     }
 
     this.input.addEventListener('change', onInputChange)
-    this.input.addEventListener('blur', (event: Event) => {
-      console.log('hey');
-      onInputChange(event)
-    })
   }
 }
 

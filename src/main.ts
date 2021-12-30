@@ -1,4 +1,3 @@
-import TabCredits from './presentation/TabCredits'
 import TabSleep from './presentation/TabSleep'
 import TabWakeUp from './presentation/TabWakeUp'
 import TabManager from './presentation/TabManager'
@@ -11,7 +10,6 @@ function main() {
     new TabSleep(document),
     new TabWakeUp(document),
     new TabAbout(document),
-    new TabCredits(document),
   ]
 
   const tabManagerMenu = new TabManagerMenu(document,

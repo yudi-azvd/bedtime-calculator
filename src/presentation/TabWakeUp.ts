@@ -43,7 +43,6 @@ export default class TabWakeUp extends Tab {
     }
 
     this.input.addEventListener('change', onInputChange)
-    this.input.addEventListener('blur', onInputChange)
   }
 }
 

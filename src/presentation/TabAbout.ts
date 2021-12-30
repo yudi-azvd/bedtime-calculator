@@ -4,9 +4,16 @@ export default class TabAbout extends Tab {
   constructor(document: Document) {
     super(document, 'tab-about', 'Sobre')
     this.htmlElement.innerHTML = `
-      <p>Ainda vou acrescentar uma breve descrição sobre esse app aqui.</p>
+      <p>Este aplicativo calcula a hora ideal para dormir e acordar baseado
+      em cilcos de sono.</p>
+
+      <br>
+      <p><strong> Créditos </strong></p>
       <p>Feito por <a href="https://github.com/yudi-azvd">Yudi Yamane</a></p>
       <p>Código fonte: <a href="https://github.com/yudi-azvd/bedtime-calculator">yudi-azvd/bedtime-calculator</a></p>
+      <p> <a href="https://www.flaticon.com/premium-icon/clock_2838590?term=clock&page=1&position=13&page=1&position=13&related_id=2838590&origin=search">Relógio</a> da logo </p>
+      <p> <a href="https://www.flaticon.com/premium-icon/bed_3010012?term=bed&page=1&position=8&page=1&position=8&related_id=3010012&origin=search">Cama</a> da logo </p>
+
     `
   }
 
