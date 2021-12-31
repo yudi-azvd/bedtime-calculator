@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  install:
+  install-build-test-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
