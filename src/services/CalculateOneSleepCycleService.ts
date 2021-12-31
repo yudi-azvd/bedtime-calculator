@@ -5,6 +5,15 @@ export interface Args {
 }
 
 /**
+ * Ideia
+ *
+ * OneSleepCycle.later()
+ * OneSleepCycle.before()
+ * já que os dois usam a mesma operação, mas com ordem trocada dos
+ * operandos
+ */
+
+/**
  * Classe base que calcula horários baseados em `baseTime` em intervalos de
  * tempo de `sleepCycleDurationInMinutes`. As classes que herdam dela devem
  * implementar o método `operation`. A implementação de `operation` determina
@@ -70,22 +79,18 @@ export default abstract class CalculateOneSleepCycleService {
   }
 
   private preRun(): void {
-    // TODO: executar um shift para o minimunAmountOfSleepInMinutes
-
     if (this.oneSleepCycleDurationInMinutes === this.minimumAmountOfSleepInMinutes)
       return
 
-    if (this.oneSleepCycleDurationInMinutes >= this.minimumAmountOfSleepInMinutes) {
-      // this.baseDate.setMinutes()
-      return
-    }
-
     if (this.oneSleepCycleDurationInMinutes < this.minimumAmountOfSleepInMinutes) {
-      const numberOfSleepCycles = Math.floor(
+      let numberOfSleepCycles = Math.floor(
         this.minimumAmountOfSleepInMinutes / this.oneSleepCycleDurationInMinutes
-      )
+      ) + 1
 
-      for (let i = 0; i < numberOfSleepCycles; i++) {
+      if (this.minimumAmountOfSleepInMinutes % this.oneSleepCycleDurationInMinutes === 0)
+        numberOfSleepCycles--
+
+      for (let i = 0; i < numberOfSleepCycles - 1; i++) {
         this.run()
       }
     }

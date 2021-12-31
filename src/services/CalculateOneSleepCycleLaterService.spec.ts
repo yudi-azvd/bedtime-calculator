@@ -61,8 +61,8 @@ describe('CalculateOneSleepCycleLaterService', () => {
     it('should output times minimumAmountOfSleepInMinutes later', () => {
       sut = makeSut({
         baseTime: '23:30',
-        minimumAmountOfSleepInMinutes: 90,
         oneSleepCycleDurationInMinutes: 60,
+        minimumAmountOfSleepInMinutes: 90,
       })
 
       expect(sut.run()).toBe('01:30')
@@ -73,10 +73,11 @@ describe('CalculateOneSleepCycleLaterService', () => {
     it('should output multiple times one sleep cycle (15min) apart from each other', () => {
       sut = makeSut({
         baseTime: '23:30',
-        minimumAmountOfSleepInMinutes: 30,
         oneSleepCycleDurationInMinutes: 15,
+        minimumAmountOfSleepInMinutes: 30,
       })
 
+      expect(sut.run()).toBe('00:00')
       expect(sut.run()).toBe('00:15')
       expect(sut.run()).toBe('00:30')
       expect(sut.run()).toBe('00:45')
@@ -85,45 +86,45 @@ describe('CalculateOneSleepCycleLaterService', () => {
     it('minimumAmountOfSleepInMinutes is not multiple of oneSleepCycleDurationInMinutes', () => {
       sut = makeSut({
         baseTime: '23:30',
-        minimumAmountOfSleepInMinutes: 30,
         oneSleepCycleDurationInMinutes: 25,
+        minimumAmountOfSleepInMinutes: 30,
       })
 
-      expect(sut.run()).toBe('00:15')
-      expect(sut.run()).toBe('00:30')
+      expect(sut.run()).toBe('00:20')
       expect(sut.run()).toBe('00:45')
+      expect(sut.run()).toBe('01:10')
     })
 
     it('minimumAmountOfSleepInMinutes fits multiple sleep cycles', () => {
       sut = makeSut({
         baseTime: '22:00',
-        minimumAmountOfSleepInMinutes: 60 * 9,
         oneSleepCycleDurationInMinutes: 90,
+        minimumAmountOfSleepInMinutes: 60 * 9,
       })
 
-      expect('07:00').toBe(sut.run())
+      expect(sut.run()).toBe('07:00')
     })
   })
 
   describe('oneSleepCycleDurationInMinutes > minimumAmountOfSleepInMinutes', () => {
-    it('case 1', () => {
+    it('should calculate first result only one sleep cycle after given base time', () => {
       sut = makeSut({
         baseTime: '22:00',
-        minimumAmountOfSleepInMinutes: 30,
         oneSleepCycleDurationInMinutes: 90,
+        minimumAmountOfSleepInMinutes: 30,
       })
 
-      expect('23:30').toBe(sut.run())
+      expect(sut.run()).toBe('23:30')
     })
 
-    it('case 2', () => {
+    test('should calculate first result only one sleep cycle after given base time, 2', () => {
       sut = makeSut({
         baseTime: '22:00',
+        oneSleepCycleDurationInMinutes: 20,
         minimumAmountOfSleepInMinutes: 15,
-        oneSleepCycleDurationInMinutes: 90,
       })
 
-      expect('23:30').toBe(sut.run())
+      expect(sut.run()).toBe('22:20')
     })
   })
 })
