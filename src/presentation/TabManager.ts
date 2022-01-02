@@ -43,7 +43,7 @@ export default class TabManager {
       })
     }
 
-    this.htmlElement.querySelectorAll('button')
+    (this.htmlElement.querySelectorAll('button.tab-btn') as NodeListOf<HTMLButtonElement>)
       .forEach(button => setupListener(button))
   }
 }

@@ -43,6 +43,7 @@
 /* TABS INDIVIDUAIS */
 
 .tab-manager .tab {
+  margin: 16px 0;
   width: auto;
   position: absolute;
   top: 36px;
@@ -69,6 +70,7 @@
   margin: 16px 0;
 }
 
+.tab-manager .tab span,
 .tab-manager .tab p {
   margin: 16px 0;
 }
@@ -89,4 +91,39 @@
 
 .tab-manager .tab div li+li {
   margin-top: 8px;
+}
+
+
+/* MAIS OPÇÕES*/
+
+.tab-manager .tab .more-options {
+  /* background: purple; */
+}
+
+.tab-manager .tab .more-options label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tab-manager .tab .more-options label span {
+  width: 196px;
+  margin-bottom: 8px;
+}
+
+.tab-manager .tab .more-options label input {
+  margin-left: 16px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  height: 32px;
+  width: 64px;
+}
+
+.tab-manager .tab .btn-more-options {
+  border-radius: 4px;
+  padding: 4px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
 }

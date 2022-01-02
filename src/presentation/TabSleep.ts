@@ -3,46 +3,59 @@ import dateToTimeString from '../util/dateToTimeString'
 import Tab from './Tab'
 
 export default class TabSleep extends Tab {
-  public input: HTMLInputElement
-
   constructor(document: Document) {
     super(document, 'tab-sleep', 'Dormir')
 
     const now = dateToTimeString(new Date())
     this.htmlElement.innerHTML = `
-      <p>Eu quero dormir às:</p>
+      <div>
+        <span>Eu quero dormir às:</span>
+      </div>
 
       <label for="base-time-sleep" class="form-label">
         <input class="form-control" type="time" id="base-time-sleep" value="${now}">
       </label>
 
+      <div class="more-options-menu">
+        <button class="btn-more-options">Mais opções V </button>
+        ${this.generateMoreOptionsHtmlString()}
+      </div>
+
       <p>pra acordar possivelmente às:</p>
       <div id="times-wake-up"></div>
     `
 
-    this.input = this.htmlElement.querySelector('input')
+    this.input = this.htmlElement.querySelector('input#base-time-sleep')
+    this.setupMoreOptionsListeners()
   }
 
   setup(): void {
-    const onInputChange = (event: Event) => {
-      let baseTime = `${(<HTMLInputElement>event.target).value}`
-      const timesDiv = document.querySelector('#times-wake-up') as HTMLDivElement
-      timesDiv.innerText = ''
-
-      let oneSleepCycleLater: string
-      let calc = new CalculateOneSleepCycleLaterService({ baseTime })
-      let li: HTMLLIElement
-
-      for (let index = 0; index < 5; index++) {
-        oneSleepCycleLater = calc.run()
-        baseTime = oneSleepCycleLater
-        li = document.createElement('li')
-        li.innerText = oneSleepCycleLater
-        timesDiv.appendChild(li)
-      }
+    const setNewService = (event: Event) => {
+      this.calculationInput.baseTime = (<HTMLInputElement>event.target).value
+      this.addOutputToDOM(
+        '#times-wake-up',
+        new CalculateOneSleepCycleLaterService({
+          baseTime: this.calculationInput.baseTime,
+          minimumAmountOfSleepInMinutes: this.calculationInput.minimumAmountOfSleepInMinutes,
+          oneSleepCycleDurationInMinutes: this.calculationInput.oneSleepCycleDurationInMinutes
+        }),
+        this.calculationInput.numberOfOutputs
+      )
     }
 
-    this.input.addEventListener('change', onInputChange)
+    this.input.addEventListener('change', setNewService)
+  }
+
+  onMoreOptionsChange(): void {
+    this.addOutputToDOM(
+      '#times-wake-up',
+      new CalculateOneSleepCycleLaterService({
+        baseTime: this.calculationInput.baseTime,
+        minimumAmountOfSleepInMinutes: this.calculationInput.minimumAmountOfSleepInMinutes,
+        oneSleepCycleDurationInMinutes: this.calculationInput.oneSleepCycleDurationInMinutes
+      }),
+      this.calculationInput.numberOfOutputs
+    )
   }
 }
 

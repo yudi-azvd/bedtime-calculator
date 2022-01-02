@@ -5,7 +5,7 @@ export default class TabManagerMenu {
     this.htmlElement = this.document.createElement('div')
     this.htmlElement.classList.add('tab-manager-menu')
     this.htmlElement.innerHTML = tabs.map(
-      t => `<button id="btn-${t.id}"> ${t.name} </button>`).join('')
+      t => `<button id="btn-${t.id}" class="tab-btn"> ${t.name} </button>`).join('')
   }
 
   setActive(buttonId: string): void {
