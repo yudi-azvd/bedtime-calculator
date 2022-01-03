@@ -55,7 +55,7 @@ export default abstract class Tab {
 
   protected generateMoreOptionsHtmlString(): string {
     return `
-      <div class="more-options">
+      <div class="more-options hide">
         <label for="options-number-of-outputs" class="form-label">
           <span> Quantidade de horários: </span>
           <input
@@ -98,9 +98,17 @@ export default abstract class Tab {
 
     inputsList.forEach(input => input.addEventListener('change', (event: Event) => {
       this.calculationInput[(<HTMLInputElement>event.target).name] = parseInt((<HTMLInputElement>event.target).value)
-      // console.log('calc input', this.calculationInput);
       this.onMoreOptionsChange()
     }))
+
+    let chevrons = ['⌃', '⌄']
+    let i = 0
+    const moreOptionsButton = this.htmlElement.querySelector('button.btn-more-options') as HTMLButtonElement
+    moreOptionsButton.addEventListener('click', (event: Event) => {
+      moreOptionsButton.classList.toggle('active')
+      moreOptionsButton.innerText = `Mais opções ${chevrons[i++ % 2]}`
+      this.htmlElement.querySelector('div.more-options').classList.toggle('hide')
+    })
   }
 
   abstract onMoreOptionsChange(): void

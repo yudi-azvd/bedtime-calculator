@@ -11,7 +11,7 @@ export default class TabWakeUp extends Tab {
       <p>Eu quero acordar às:</p>
 
       <label for="base-time-sleep" class="form-label">
-        <input class="form-control" type="time" id="base-time-wake-up" value="${now}">
+        <input class="form-control base-time" type="time" id="base-time-wake-up" value="${now}">
       </label>
 
       <p>dormindo possivelmente às:</p>

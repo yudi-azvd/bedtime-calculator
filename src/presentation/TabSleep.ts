@@ -13,11 +13,11 @@ export default class TabSleep extends Tab {
       </div>
 
       <label for="base-time-sleep" class="form-label">
-        <input class="form-control" type="time" id="base-time-sleep" value="${now}">
+        <input class="form-control base-time" type="time" id="base-time-sleep" value="${now}">
       </label>
 
       <div class="more-options-menu">
-        <button class="btn-more-options">Mais opções V </button>
+        <button class="btn-more-options">Mais opções ⌄</button>
         ${this.generateMoreOptionsHtmlString()}
       </div>
 

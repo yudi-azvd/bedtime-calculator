@@ -75,6 +75,10 @@
   margin: 16px 0;
 }
 
+.tab-manager .tab input.base-time {
+  margin-top: 8px;
+}
+
 .tab-manager .tab div li {
   list-style: none;
   /* https://stackoverflow.com/questions/4686754/making-every-character-on-a-web-page-the-same-width */
@@ -91,6 +95,10 @@
 
 .tab-manager .tab div li+li {
   margin-top: 8px;
+}
+
+.tab-manager .tab div li:last-child {
+  margin-bottom: 32px;
 }
 
 
@@ -120,10 +128,32 @@
   width: 64px;
 }
 
-.tab-manager .tab .btn-more-options {
-  border-radius: 4px;
+.tab-manager .tab button.btn-more-options {
   padding: 4px;
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid transparent;
+  color: grey;
+  transition: all 0.2s;
+}
+
+.tab-manager .tab button.btn-more-options:hover:not(.active) {
+  border-bottom: 1px solid var(--color-complementary);
+  color: var(--color-complementary);
+}
+
+.tab-manager .tab button.btn-more-options.active {
+  /* border-bottom: 1px solid white; */
   color: white;
+}
+
+.tab-manager .tab div.more-options {
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.tab-manager .tab div.more-options.hide {
+  opacity: 0;
+  display: none;
+  transition: all 0.2s;
 }
