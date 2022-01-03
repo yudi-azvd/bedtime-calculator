@@ -1,5 +1,7 @@
 # Bed Time Calculator
 
+<img src=".github/app-social-preview.png" width="600">
+
 ## Começando
 
 Instale as dependências:
