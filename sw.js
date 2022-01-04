@@ -1,13 +1,12 @@
 let cacheName = 'bedtime-calculator'
 let filesToCache = [
   './',
-  './public/index.html',
-  './public/favicon.png',
-  './public/styles/global.css',
-  './public/styles/index.css',
-  './public/styles/input-time-bootstraped.css',
-  './public/styles/tab.css',
-  './public/styles/tab.css',
+  './index.html',
+  './favicon.png',
+  './styles/global.css',
+  './styles/index.css',
+  './styles/input-time-bootstraped.css',
+  './styles/tab.css',
 ]
 
 self.addEventListener('install', (event) => {
