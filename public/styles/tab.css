@@ -120,12 +120,12 @@
 }
 
 .tab-manager .tab .more-options label input {
-  margin-left: 16px;
+  margin-left: 12px;
   background: transparent;
   border: 1px solid white;
   color: white;
   height: 32px;
-  width: 64px;
+  width: 72px;
 }
 
 .tab-manager .tab button.btn-more-options {

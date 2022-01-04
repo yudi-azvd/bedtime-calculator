@@ -38,8 +38,6 @@ export default abstract class Tab {
     const outputTimesDiv = this.htmlElement.querySelector(outputTimesDivId) as HTMLDivElement
     outputTimesDiv.innerText = ''
 
-    console.log('hey');
-
     let oneSleepCycleLaterOrBefore: string
     let li: HTMLLIElement
     let baseTime: string
@@ -104,7 +102,7 @@ export default abstract class Tab {
     let chevrons = ['⌃', '⌄']
     let i = 0
     const moreOptionsButton = this.htmlElement.querySelector('button.btn-more-options') as HTMLButtonElement
-    moreOptionsButton.addEventListener('click', (event: Event) => {
+    moreOptionsButton.addEventListener('click', () => {
       moreOptionsButton.classList.toggle('active')
       moreOptionsButton.innerText = `Mais opções ${chevrons[i++ % 2]}`
       this.htmlElement.querySelector('div.more-options').classList.toggle('hide')
