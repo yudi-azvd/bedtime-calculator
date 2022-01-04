@@ -25,7 +25,9 @@ function main() {
 }
 
 if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register(new URL('../sw.js', import.meta.url))
-};
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(new URL('../sw.js', import.meta.url))
+  })
+}
 
 main()

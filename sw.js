@@ -1,14 +1,14 @@
 let cacheName = 'bedtime-calculator'
 let filesToCache = [
   './',
-  './index.html',
-  './js/main.js',
-  './css/style.css',
+  './public/index.html',
+  './public/favicon.png',
+  './public/styles/global.css',
+  './public/styles/index.css',
+  './public/styles/input-time-bootstraped.css',
+  './public/styles/tab.css',
+  './public/styles/tab.css',
 ]
-
-// if (isHostedOnGithub) {
-//   filesToCache = filesToCache.map(file => 'pwa-basic/' + file)
-// }
 
 self.addEventListener('install', (event) => {
   console.log('[Service Worker] Install');
