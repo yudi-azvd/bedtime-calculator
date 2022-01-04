@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "snowpack dev",
     "build": "snowpack build",
+    "generate-sw": "workbox generateSW",
     "test": "jest",
     "test:watch": "jest --watch --runInBand",
     "test:cov": "jest --runInBand --collect-coverage"
@@ -14,6 +15,7 @@
     "jest": "^27.4.5",
     "snowpack": "^3.8.8",
     "ts-jest": "^27.1.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "workbox-cli": "^6.4.2"
   }
 }
