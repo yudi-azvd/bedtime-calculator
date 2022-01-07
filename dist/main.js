@@ -17,9 +17,10 @@ function main() {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     const isHostedOnGitHub = window.location.href.indexOf("github.io") > 0;
-    if (isHostedOnGitHub)
+    if (isHostedOnGitHub) {
       navigator.serviceWorker.register("/bedtime-calculator/sw.js");
-    else
+      console.log("hosted on GitHub");
+    } else
       navigator.serviceWorker.register("/sw.js");
   });
 }
