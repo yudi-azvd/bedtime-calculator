@@ -1,0 +1,159 @@
+.tab-manager {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+
+/* TAB MANAGER MENU  */
+
+.tab-manager .tab-manager-menu {
+  margin-bottom: 16px;
+}
+
+.tab-manager .tab-manager-menu button {
+  color: grey;
+  border: 1px solid transparent;
+  background: transparent;
+  ;
+  transition: color 0.2s, border-bottom 0.5s;
+}
+
+.tab-manager .tab-manager-menu button+button {
+  margin-left: 8px;
+}
+
+.tab-manager .tab-manager-menu button.active {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.tab-manager .tab-manager-menu button:hover.active {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.tab-manager .tab-manager-menu button:hover {
+  color: var(--color-complementary);
+  border-bottom: 1px var(--color-complementary) solid;
+}
+
+
+/* TABS INDIVIDUAIS */
+
+.tab-manager .tab {
+  margin: 16px 0;
+  width: auto;
+  position: absolute;
+  top: 36px;
+  opacity: 0;
+  transition: opacity 1s, top 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.tab-manager .tab.active {
+  display: block;
+  opacity: 1;
+  top: 26px;
+}
+
+.tab-manager .tab.transparent {
+  opacity: 0;
+}
+
+.tab-manager .tab.hide {
+  display: none;
+}
+
+.tab-manager .tab h3 {
+  margin: 16px 0;
+}
+
+.tab-manager .tab span,
+.tab-manager .tab p {
+  margin: 16px 0;
+}
+
+.tab-manager .tab input.base-time {
+  margin-top: 8px;
+}
+
+.tab-manager .tab div li {
+  list-style: none;
+  /* https://stackoverflow.com/questions/4686754/making-every-character-on-a-web-page-the-same-width */
+  /* https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css */
+  font-variant-numeric: tabular-nums lining-nums;
+  margin-left: 0;
+  transition: color 0.2s, margin-left 0.2s;
+}
+
+.tab-manager .tab div li:hover {
+  color: var(--color-complementary);
+  margin-left: 4px;
+}
+
+.tab-manager .tab div li+li {
+  margin-top: 8px;
+}
+
+.tab-manager .tab div li:last-child {
+  margin-bottom: 32px;
+}
+
+
+/* MAIS OPÇÕES*/
+
+.tab-manager .tab .more-options {
+  /* background: purple; */
+}
+
+.tab-manager .tab .more-options label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tab-manager .tab .more-options label span {
+  width: 196px;
+  margin-bottom: 8px;
+}
+
+.tab-manager .tab .more-options label input {
+  margin-left: 12px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  height: 32px;
+  width: 72px;
+}
+
+.tab-manager .tab button.btn-more-options {
+  padding: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: grey;
+  transition: all 0.2s;
+}
+
+.tab-manager .tab button.btn-more-options:hover:not(.active) {
+  border-bottom: 1px solid var(--color-complementary);
+  color: var(--color-complementary);
+}
+
+.tab-manager .tab button.btn-more-options.active {
+  /* border-bottom: 1px solid white; */
+  color: white;
+}
+
+.tab-manager .tab div.more-options {
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.tab-manager .tab div.more-options.hide {
+  opacity: 0;
+  display: none;
+  transition: all 0.2s;
+}
