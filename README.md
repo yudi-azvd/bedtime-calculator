@@ -8,6 +8,10 @@ Você pode ver o que está funcionando nesse endereço: [https://yudi-azvd.githu
 E o que está sendo desenvolvido nesse endereço:
 [https://bedtime-calculator.vercel.app/](https://bedtime-calculator.vercel.app/).
 
+Pra quem estiver curioso, pode ver o diagrama de classes
+[aqui](https://drive.google.com/file/d/1bVQf7c18fyzb2pUe9Z0F3tzIxzDDjYS3/view?usp=sharing),
+feito no Draw.io.
+
 
 ## Desenvolvimento local
 
@@ -31,6 +35,8 @@ Você pode interagir com a aplicação no endereço
 > mas eu tô treinando alguns princícpios do SOLID e TDD.
 
 ## Recursos extras
+
+[Year of PWA: A Summary](https://christianliebel.com/2018/12/year-of-pwa-a-summary/)
 
 [PWA basicão](https://www.loginradius.com/blog/async/build-pwa-using-vanilla-javascript/)
 

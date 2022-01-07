@@ -1,7 +1,7 @@
 {
   "name": "Bedtime Calculator",
-  "short_name": "bedtime-calculator",
-  "description": "Bedtime Calculator calcula a hora ideal para dormir e acordar baseado em cilcos de sono.",
+  "short_name": "Bedtime Calculator",
+  "description": "Bedtime Calculator calcula a hora ideal para dormir e acordar baseado em ciclos de sono.",
   "icons": [{
       "src": "images/icon@24.png",
       "sizes": "24x24",
@@ -40,6 +40,6 @@
   ],
   "start_url": "./index.html",
   "display": "fullscreen",
-  "theme_color": "#ffffff",
+  "theme_color": "#1A2B56",
   "background_color": "#1A2B56"
 }
