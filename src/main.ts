@@ -26,8 +26,11 @@ function main() {
 
 if('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    // navigator.serviceWorker.register(new URL('/sw.js', import.meta.url))
-    navigator.serviceWorker.register('/sw.js')
+    const isHostedOnGitHub = window.location.href.indexOf('github.io') > 0
+    if (isHostedOnGitHub)
+      navigator.serviceWorker.register('/bedtime-calculator/sw.js')
+    else
+      navigator.serviceWorker.register('/sw.js')
   })
 }
 
