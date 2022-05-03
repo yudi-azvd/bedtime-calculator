@@ -47,6 +47,8 @@ export default class TabSleep extends Tab {
   }
 
   onMoreOptionsChange(): void {
+    console.log('hey');
+
     this.addOutputToDOM(
       '#times-wake-up',
       new CalculateOneSleepCycleLaterService({

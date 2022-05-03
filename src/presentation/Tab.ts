@@ -95,6 +95,8 @@ export default abstract class Tab {
     const inputsList = this.htmlElement.querySelectorAll('input[id^="options"]') as NodeListOf<HTMLInputElement>
 
     inputsList.forEach(input => input.addEventListener('change', (event: Event) => {
+      console.log('adding listener to ', input.name);
+
       this.calculationInput[(<HTMLInputElement>event.target).name] = parseInt((<HTMLInputElement>event.target).value)
       this.onMoreOptionsChange()
     }))

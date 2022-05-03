@@ -28,13 +28,15 @@ export default class TabWakeUp extends Tab {
   }
 
   setup(): void {
-    const numberOfOutputs = 3
     const setNewService = (event: Event) => {
-      let baseTime = (<HTMLInputElement>event.target).value
       this.addOutputToDOM(
         '#times-sleep',
-        new CalculateOneSleepCycleBeforeService({ baseTime }),
-        numberOfOutputs
+        new CalculateOneSleepCycleBeforeService({
+          baseTime: this.calculationInput.baseTime,
+          minimumAmountOfSleepInMinutes: this.calculationInput.minimumAmountOfSleepInMinutes,
+          oneSleepCycleDurationInMinutes: this.calculationInput.oneSleepCycleDurationInMinutes
+        }),
+        this.calculationInput.numberOfOutputs
       )
     }
 
@@ -42,7 +44,17 @@ export default class TabWakeUp extends Tab {
   }
 
   onMoreOptionsChange(): void {
+    console.log('hey');
 
+    this.addOutputToDOM(
+      '#times-sleep',
+      new CalculateOneSleepCycleBeforeService({
+        baseTime: this.calculationInput.baseTime,
+        minimumAmountOfSleepInMinutes: this.calculationInput.minimumAmountOfSleepInMinutes,
+        oneSleepCycleDurationInMinutes: this.calculationInput.oneSleepCycleDurationInMinutes
+      }),
+      this.calculationInput.numberOfOutputs
+    )
   }
 }
 
