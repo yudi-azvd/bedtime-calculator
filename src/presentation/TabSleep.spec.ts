@@ -14,11 +14,7 @@ describe('TabSleep', () => {
     expect(tabSleep.htmlElement.id).toEqual('tab-sleep')
   })
 
-  it('should display 3 times to wake up by default', () => {
-    fail('not implemented')
-  })
+  it.todo('should display 3 times to wake up by default')
 
-  it('should be able to display 5 times to wake by changing options-number-of-outputs input', () => {
-    fail('not implemented')
-  })
+  it.todo('should be able to display 5 times to wake by changing options-number-of-outputs input')
 })
