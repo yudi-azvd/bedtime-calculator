@@ -1,6 +1,8 @@
 import Tab from "./Tab"
 import TabAbout from "./TabAbout"
 
+import { describe, it, beforeEach, expect } from 'vitest'
+
 let tabAbout: Tab
 
 describe('TabAbout', () => {

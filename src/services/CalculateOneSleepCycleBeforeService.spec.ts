@@ -1,6 +1,9 @@
 import CalculateOneSleepCycleBeforeService from './CalculateOneSleepCycleBeforeService'
 import { Args } from './CalculateOneSleepCycleService'
 
+import { describe, it, expect } from 'vitest'
+
+
 function makeSut(args: Args) {
   return new CalculateOneSleepCycleBeforeService(args)
 }

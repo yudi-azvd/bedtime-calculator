@@ -1,6 +1,9 @@
 import CalculateOneSleepCycleLaterService from './CalculateOneSleepCycleLaterService'
 import { Args } from './CalculateOneSleepCycleService'
 
+import { describe, it, expect } from 'vitest'
+
+
 function makeSut(args: Args) {
   return new CalculateOneSleepCycleLaterService(args)
 }
@@ -117,7 +120,7 @@ describe('CalculateOneSleepCycleLaterService', () => {
       expect(sut.run()).toBe('23:30')
     })
 
-    test('should calculate first result only one sleep cycle after given base time, 2', () => {
+    it('should calculate first result only one sleep cycle after given base time, 2', () => {
       sut = makeSut({
         baseTime: '22:00',
         oneSleepCycleDurationInMinutes: 20,
